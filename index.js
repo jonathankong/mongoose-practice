@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { deleteMany } = require('./User')
 const User = require("./User")
 
 require('dotenv').config()
@@ -23,16 +24,18 @@ async function run(){
     // console.log(user)
 
     try {
-        const user = await User.create({
-            name: "Kyle",
-            age: "27",
-            email: "kyle@email.com",
-            hobbies: ["Weight Lifting", "Bowling"],
-            address: {
-                street: "Main Street"
-            }
-        })
-        console.log(user);
+        // const user = await User.create({
+        //     name: "Kyle",
+        //     age: "27",
+        //     email: "kyle@email.com",
+        //     hobbies: ["Weight Lifting", "Bowling"],
+        //     address: {
+        //         street: "Main Street"
+        //     }
+        // })
+        // console.log(user);
+        const user = await User.where("age").gt(1)
+        
     }
     catch (e) {
         console.log(e.message)
