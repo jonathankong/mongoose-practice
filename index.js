@@ -16,11 +16,26 @@ async function run(){
     // await user.save()
 
     //Another way to create user
-    const user = await User.create({
-        name: "Jon",
-        age: 26
-    })
-    console.log(user)
+    // const user = await User.create({
+    //     name: "Jon",
+    //     age: 26
+    // })
+    // console.log(user)
+
+    try {
+        const user = await User.create({
+            name: "Kyle",
+            age: "30",
+            hobbies: ["Weight Lifting", "Bowling"],
+            address: {
+                street: "Main Street"
+            }
+        })
+        console.log(user);
+    }
+    catch (e) {
+        console.log(e.message)
+    }
 }
 
 
